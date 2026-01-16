@@ -7,6 +7,6 @@
     "strict": true,
     "types": ["node", "jest"]
   },
-  "include": ["src"],
+  "include": ["index.ts", "src"],
   "exclude": ["node_modules", "**/__tests__/*"]
 }
