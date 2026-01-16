@@ -15,10 +15,8 @@
     "build": "tsdx build",
     "test": "tsdx test",
     "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "redux-devtools": "redux-devtools --hostname=localhost --port=8000"
+    "prepare": "tsdx build"
   },
-  "peerDependencies": {},
   "husky": {
     "hooks": {
       "pre-commit": "tsdx lint"
@@ -40,7 +38,6 @@
     "@types/unist": "^2.0.3",
     "jest-without-globals": "^0.0.3",
     "prettier": "^2.0.5",
-    "redux-devtools-cli": "^0.0.1-1",
     "remark-parse": "^8.0.2",
     "remark-stringify": "^8.1.0",
     "remote-redux-devtools": "^0.5.16",
