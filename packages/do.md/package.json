@@ -34,6 +34,7 @@
   "devDependencies": {
     "@types/markdown-to-jsx": "^6.11.0",
     "@types/mdast": "^3.0.3",
+    "@types/minimatch": "^3.0.5",
     "@types/remote-redux-devtools": "^0.5.4",
     "@types/unist": "^2.0.3",
     "jest-without-globals": "^0.0.3",

@@ -1,16 +1,36 @@
 import { RootState, getLocalState } from '../../../store';
 import { Section } from '../../../types';
-import { Heading } from 'mdast';
+import { Content, Heading, Text } from 'mdast';
 
 const getTitleFromSection = (section: Section): string => {
   if (typeof section.heading !== 'undefined') {
     const { depth } = section.heading;
-    const text = section.heading.children[0].value as string;
+    const textNode = section.heading.children.find(
+      (child): child is Text => child.type === 'text'
+    );
+    const text = textNode?.value ?? '';
     return `${'#'.repeat(depth)} ${text}`;
   }
 
   if (section.contents.length > 0) {
-    return section.contents[0].value as string;
+    return getContentText(section.contents[0]);
+  }
+
+  return '';
+};
+
+const getContentText = (content: Content): string => {
+  if ('value' in content && typeof content.value === 'string') {
+    return content.value;
+  }
+
+  if ('children' in content && Array.isArray(content.children)) {
+    const textChild = content.children.find(
+      (child): child is Text =>
+        'value' in child && typeof child.value === 'string'
+    );
+
+    return textChild?.value ?? '';
   }
 
   return '';
